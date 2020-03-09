@@ -1,45 +1,86 @@
-# electron-quick-start
+## 项目运行所需环境
+### 1，必须安装nodejs
+附上node下载地址-[Nodejs](http://nodejs.cn/download/)
 
-**Clone and run for a quick way to see Electron in action.**
+node安装过程简单， 一直next就行了，我安装的版本是12.16.1，可以在powershell中通过` node -v`来查看当前版本
 
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
+![](README_files/4.jpg)
+### 2，安装nod-gyp
+node-gyp是用来编译c++模块的工具，这里用来编译serialport，
+node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+全局安装 `npm install -g node-gyp`
 
-A basic Electron application needs just these files:
+#### 来看这一段来自官方文档的说明
+![](README_files/8.jpg)
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+#### 大致意思就是有两种方案：
+**一种是**下载windows-build-tools,通过命令`npm install --global --production windows-build-tools`,但是要注意
+的是必须以管理员的身份启动CMD窗口或者是PowerShell窗口，这种方案下载的东西较少
 
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+**还有一种是**要下载Visual Studio和python，这种方案下载的东西就很多了，但是我以前电脑装过VisualStudio并且以后或许会用到
+所以我选了第二种方案
 
-## To Use
+### 3、安装visual studio 2017
+附上visual studio下载地址[Visual Studio 2017 Community](https://visualstudio.microsoft.com/pl/thank-you-downloading-visual-studio/?sku=Community)
+安装VS的时候选项如下，要勾选使用c++桌面开发，node-gyp文档上也有提示
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+![](README_files/3.jpg)
+![](README_files/5.jpg)
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
+安装完成之后执行一下命令
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+`npm config set msvs_version 2017`
 
-## Resources for Learning Electron
+### 4、安装python2.7
+附上python下载地址-[Python2.7x](https://www.python.org/downloads/windows/)
 
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+![](README_files/6.jpg)
+python安装注意版本要下载相应的版本 百度了一下说python3.x不支持，为了避免不必要的问题干脆直接装python2.7，
+具体安装过程记不清了，网上教程很多，大同小异，照着过程安装一遍就行。
 
-## License
+安装完成之后执行命令
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+`npm config set python python2.7`
+
+可以在powershell中使用命令`python --version`来查看安装好的版本
+![](README_files/7.jpg)
+
+## 项目的安装与使用
+### clone到本地
+`git clone https://github.com/BaiFangZi/electron-serialport.git`
+### 切换到项目目录
+`cd electron-serialport`
+### 下载相应的依赖
+npm下载由于网速或者被墙会造成下载失败，推荐使用cnpm
+![](README_files/1.jpg)
+`npm install`或者`cnpm install`
+
+下载成功后的提示信息
+![](README_files/2.jpg)
+
+由于node版本和electron版本不匹配，所以直接启动会报错，这个时候要执行下面这两个命令来解决这个问题
+
+`cd ./node_modules/@serialport/bindings`
+
+`node-gyp rebuild --target=6.0.10 --arch=x64 --dist-url=https://npm.taobao.org/mirrors/atom-shell`
+
+然后再返回根目录 `cd ../../../`
+
+启动项目 `npm start`
+
+## 项目打包生成exe文件
+
+我使用的是electron-builder来打包 打包命令
+
+`npm run dist`
+
+在package.json文件中可以更改build属性来配置相应的打包选项
+![](README_files/9.jpg)
+
+打包过程极有可能被墙，针对这种情况我们可以复制链接然后在浏览器中下载相应的被墙的文件，再手动添加到目录中
+
+详细过程可以看这篇文章 [解决下载依赖出错](https://blog.csdn.net/cctvcqupt/article/details/87904368)
+![](README_files/10.jpg)
+
+build文件夹就是成功打包后的东西，包括安装包等
