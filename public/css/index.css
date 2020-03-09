@@ -1,0 +1,93 @@
+body {
+	/* 	width: 100%;
+	height: 100%;
+	background-color: aqua; */
+}
+
+.flex-box {
+	display: flex;
+	height: 480px;
+	width: 100%;
+	/* background-color: red; */
+}
+
+.side-bar {
+	width: 200px;
+	height: 100%;
+	background-color: #f0f0f0;
+}
+
+.content {
+	flex: 1;
+	background-color: #fcfcfc;
+}
+
+.send-text-box {
+	/* display: flex; */
+	background-color: #fff;
+	width: 100%;
+	height: 80px;
+}
+
+.send-text-box textarea {
+	display: block;
+	float: left;
+	height: 100%;
+	width: calc(100% - 100px);
+	background-color: azure;
+	resize: none;
+}
+
+.send-text-box button {
+	display: block;
+	width: 100px;
+	height: 40px;
+
+	float: right;
+}
+
+.receive-text-box {
+	height: 400px;
+	overflow-y: scroll;
+	background-color: #000;
+	color: forestgreen;
+}
+
+.side-bar .control {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+
+.side-bar .setting-box {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+.side-bar .setting-box input[type=text]{
+	display: inline-block;
+	width: 45px;
+	font-size: 14px;
+}
+
+.side-bar .select-control-baudRate,
+.side-bar .select-control-com{
+	display: block;
+	width: 100%;
+	background-color: #e0e0e0;
+}
+
+.side-bar .select-control-baudRate option,
+.side-bar .select-control-com option{
+	text-align: center;
+}
+.btn-submit,.clear-receive-data{
+/* 	float: left; */
+	display: block;
+	background-color: #ccc;
+	outline: none;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}

@@ -1,0 +1,40 @@
+{
+	"name": "electron-quick-start",
+	"version": "1.0.0",
+	"description": "A minimal Electron application",
+	"main": "main.js",
+	"build": { 
+		"productName": "ComDebuger", 
+		"appId": "com.xxx.xxxxx", 
+		"electronVersion": "6.0.10",
+		"copyright": "aa", 
+		"directories": {
+			"output": "build"
+		},
+		"win": {}
+	},
+	"scripts": {
+		"start": "electron .",
+		 "dist": "electron-builder --win --x64",
+		"package": "electron-packager ./ --win --out ./OutApp --arch=x64  --electron-version=6.0.10 --asar --ignore=node_modules"
+	},
+	"repository": "https://github.com/electron/electron-quick-start",
+	"keywords": [
+		"Electron",
+		"quick",
+		"start",
+		"tutorial",
+		"demo"
+	],
+	"author": "GitHub",
+	"license": "CC0-1.0",
+	"devDependencies": {
+		"electron": "^6.0.10",
+		"electron-builder": "^22.3.6",
+		"electron-rebuild": "^1.10.0"
+	},
+	"dependencies": {
+		"serialport": "^8.0.6",
+		"tableify": "^1.1.0"
+	}
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self';  script-src * 'self' 'unsafe-eval'">
+		<meta http-equiv="X-Content-Security-Policy" content="default-src 'self';  script-src * 'self' 'unsafe-eval'">
+		<link rel="stylesheet" href="./public/css/reset.css">
+		<link rel="stylesheet" href="./public/css/index.css">
+		<title>串口调试</title>
+	</head>
+	<body>
+		<div class="flex-box">
+			<div class="side-bar">
+				<label for="com" class="control">串口选择</label>
+				<select id="com" name="" class="select-control-com"></select>
+				<label for="baudRate" class="control">波特率</label>
+				<select id="baudRate" name="" class="select-control-baudRate">
+					<option value="115200">115200</option>
+					<option value="9600" selected>9600</option>
+					<option value="4800">4800</option>
+				</select>
+<!-- 				<div class="timing-send">
+					<div class="setting-box">
+						<label for="timing">定时发送</label>
+						<input type="checkbox" id="timing">
+					</div>
+					<div class="setting-box">
+						<label for="time">周期</label>
+						<input type="text" id="time" value="1000">
+					</div>
+				</div>
+				<div class="display-format">
+					<div class="setting-box">
+						<label for="send">0x显示</label>
+						<input type="checkbox" id="send0x">
+					</div>
+					<div class="setting-box">
+						<label for="receive">0x发送</label>
+						<input type="checkbox" id="receive0x">
+					</div>
+				</div> -->
+
+
+
+				<button class="btn-submit">打开串口</button>
+				<button class="clear-receive-data">清除接受</button>
+			</div>
+			<div class="content">
+				<div class="receive-text-box">
+				</div>
+				<div class="send-text-box">
+					<textarea rows="" cols=""></textarea>
+					<button type="button" class="send-data">发送</button>
+					<button type="button" class="clear-send-data">清除发送</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="public/js/index.js"></script>
+</html>
