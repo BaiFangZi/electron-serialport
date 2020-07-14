@@ -4,7 +4,7 @@
 
 node安装过程简单， 一直next就行了，我安装的版本是12.16.1，可以在powershell中通过` node -v`来查看当前版本
 
-![](README_files/4.jpg)
+![](./README_files/4.jpg)
 ### 2，安装nod-gyp
 node-gyp是用来编译c++模块的工具，这里用来编译serialport，
 node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
@@ -12,7 +12,7 @@ node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
 全局安装 `npm install -g node-gyp`
 
 #### 来看这一段来自官方文档的说明
-![](README_files/8.jpg)
+![]./(README_files/8.jpg)
 
 #### 大致意思就是有两种方案：
 **一种是**下载windows-build-tools,通过命令`npm install --global --production windows-build-tools`,但是要注意
