@@ -4,7 +4,7 @@
 
 node安装过程简单， 一直next就行了，我安装的版本是12.16.1，可以在powershell中通过` node -v`来查看当前版本
 
-![](./README_files/4.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310151951107-328307498.png)
 ### 2，安装nod-gyp
 node-gyp是用来编译c++模块的工具，这里用来编译serialport，
 node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
@@ -12,7 +12,7 @@ node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
 全局安装 `npm install -g node-gyp`
 
 #### 来看这一段来自官方文档的说明
-![](README_files/8.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152008533-352756672.png)
 
 #### 大致意思就是有两种方案：
 **一种是**下载windows-build-tools,通过命令`npm install --global --production windows-build-tools`,但是要注意
@@ -25,8 +25,8 @@ node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
 附上visual studio下载地址[Visual Studio 2017 Community](https://visualstudio.microsoft.com/pl/thank-you-downloading-visual-studio/?sku=Community)
 安装VS的时候选项如下，要勾选使用c++桌面开发，node-gyp文档上也有提示
 
-![](README_files/3.jpg)
-![](README_files/5.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152025329-1878570408.png)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152045887-208844246.png)
 
 安装完成之后执行一下命令
 
@@ -35,7 +35,7 @@ node-gyp的github文档-[node-gyp文档](https://github.com/nodejs/node-gyp)
 ### 4、安装python2.7
 附上python下载地址-[Python2.7x](https://www.python.org/downloads/windows/)
 
-![](README_files/6.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152109976-890295314.png)
 python安装注意版本要下载相应的版本 百度了一下说python3.x不支持，为了避免不必要的问题干脆直接装python2.7，
 具体安装过程记不清了，网上教程很多，大同小异，照着过程安装一遍就行。
 
@@ -44,7 +44,7 @@ python安装注意版本要下载相应的版本 百度了一下说python3.x不�
 `npm config set python python2.7`
 
 可以在powershell中使用命令`python --version`来查看安装好的版本
-![](README_files/7.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152127062-723876003.png)
 
 ## 项目的安装与使用
 ### clone到本地
@@ -53,11 +53,11 @@ python安装注意版本要下载相应的版本 百度了一下说python3.x不�
 `cd electron-serialport`
 ### 下载相应的依赖
 npm下载由于网速或者被墙会造成下载失败，推荐使用cnpm
-![](README_files/1.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152153494-1402806436.png)
 `npm install`或者`cnpm install`
 
 下载成功后的提示信息
-![](README_files/2.jpg)
+![](https://img2020.cnblogs.com/blog/1929191/202003/1929191-20200310152715661-516396618.png)
 
 由于node版本和electron版本不匹配，所以直接启动会报错，这个时候要执行下面这两个命令来解决这个问题
 
